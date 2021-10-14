@@ -9,9 +9,10 @@ import com.dashboard.platform.v1.batch.BaseBatch;
 @Service
 public class HelloWorldBatch extends BaseBatch {
 
+	//this batch print HELLO WORD ever ten seconds
 	@Override
 	protected void doBatchBase() {
-		System.out.println("Prova" +new Date());
+		System.out.println("Hello World" +"" +new Date());
 	}
 
 }
