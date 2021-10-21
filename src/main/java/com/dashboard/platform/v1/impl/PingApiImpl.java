@@ -1,5 +1,7 @@
 package com.dashboard.platform.v1.impl;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.dashboard.platform.v1.api.PingApi;
@@ -9,9 +11,13 @@ import com.dashboard.platform.v1.api.PingApi;
 public class PingApiImpl implements PingApi {
 
 	@Override
-	public String testPing() {
-		String response = "true";
-		
-		return response;
+	public ResponseEntity<String> testPing() {
+		try {
+			
+			return new ResponseEntity<>("true", HttpStatus.OK);
+		} catch (Exception e) {		
+			
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 }
